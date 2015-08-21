@@ -1,4 +1,4 @@
-"""eksiroman URL Configuration
+"""muvindex URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/1.8/topics/http/urls/
@@ -16,6 +16,12 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 
+from hikaye.views import (index, register_user, login_user, logout_user)
+
 urlpatterns = [
+    url(r'^$', index, name='home'),
+    url(r'^register$', register_user, name='register'),
+    url(r'^login', login_user, name='login'),
+    url(r'^logout', logout_user, name='logout'),
     url(r'^admin/', include(admin.site.urls)),
 ]
